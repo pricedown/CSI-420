@@ -9,6 +9,7 @@ class CustomerTest {
                 	jaws	6.5
                 Amount owed is 8.0
                 You earned 2 frequent renter points""";
+
         Customer cust1;
         Movie mov1;
         Movie mov2;
@@ -16,20 +17,15 @@ class CustomerTest {
         Rental ren2;
 
         cust1 = new Customer("bob");
-
         mov1 = new Movie("dumbo", 2);
         mov2 = new Movie("jaws", 0);
-
         ren1 = new Rental(mov1,2);
         ren2 = new Rental(mov2,5);
-
         cust1.addRental(ren1);
         cust1.addRental(ren2);
 
-        assertEquals(cust1.statement(), expected);
-        //System.out.println ("\n"+cust1.statement()+"\n" );
+        assertEquals(expected, cust1.statement());
     }
-
 
     @org.junit.jupiter.api.Test
     void testStatementAnn() {
@@ -44,16 +40,13 @@ class CustomerTest {
         Movie mov3;
         Rental ren3;
         Rental ren4;
-
         cust2 = new Customer("ann");
         mov3 = new Movie("ghost", 1);
         ren3 = new Rental(mov3, 1);
         ren4 = new Rental(mov3, 3);
-
         cust2.addRental(ren3);
         cust2.addRental(ren4);
 
-        assertEquals(cust2.statement(), expected);
-        //System.out.println ("\n"+cust2.statement()+"\n");
+        assertEquals(expected, cust2.statement());
     }
 }

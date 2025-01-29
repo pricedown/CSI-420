@@ -10,7 +10,7 @@ public class Rental {
       _daysRented = daysRented;
    }
 
-   // TODO:
+   // TODO: take some methods from Customer.statement()
 
    public int getDaysRented() {
       return _daysRented;
