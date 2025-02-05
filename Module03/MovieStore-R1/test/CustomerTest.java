@@ -1,3 +1,9 @@
+package test;
+
+import main.Customer;
+import main.Movie;
+import main.Rental;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
