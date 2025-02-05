@@ -43,42 +43,53 @@ public class Customer {
             // Temps are often a problem in that they cause a lot of parameters to be passed around unnecessarily
                 // - Look at temporary local variables like question marks
                 //  Variables are like pets
+
         // "replace temp with query"
+            // optimize later
             // lays the groundwork for applying extract method, cause otherwise you will need to redefine the var across extracted methods
+            // worst case scenario, at the end when you are optimizing, you just set temp = Query(); !!
+
+        // small, single-pointed and grounded refactors
 
         // getOutstanding()
         // getRenterPoints()
         // statement() // string and formatting
+
     // TODO: we can store records in some state surely, not all at runtime
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
 
-        int frequentRenterPoints = 0;
-        double totalAmount = 0;
-
+        //show figures for this rental
         for (Rental rental : _rentals) {
-            // add frequent renter points
-            frequentRenterPoints++;
-
-            // TODO: Does this need to be separate here?
-            // add bonus for a two day new release rental
-            if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) {
-                frequentRenterPoints++;
-            }
-
-            //show figures for this rental
             result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getCharge() + "\n";
-
-            totalAmount += rental.getCharge();
         }
 
         //add footer lines
-        result +=  "Amount owed is " + totalAmount + "\n";
-        result += "You earned " + frequentRenterPoints
+        result +=  "Amount owed is " + getTotalCharge() + "\n";
+        result += "You earned " + getTotalFrequentRenterPoints()
                 + " frequent renter points";
 
         return result;
     }
+
+    private double getTotalCharge() {
+        double totalAmount = 0;
+
+        for (Rental rental : _rentals) {
+            totalAmount += rental.getCharge();
+        }
+
+        return totalAmount;
+    }
+
+    private int getTotalFrequentRenterPoints() {
+        int totalPoints = 0;
+        for (Rental rental : _rentals) {
+            totalPoints += rental.getFrequentRenterPoints();
+        }
+        return totalPoints;
+    }
+
 }
 
 
