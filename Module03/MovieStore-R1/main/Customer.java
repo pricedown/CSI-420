@@ -72,6 +72,22 @@ public class Customer {
         return result;
     }
 
+    public String htmlStatement() {
+        String result = "<h1>Rental Record for " + getName() + "</h1>";
+
+        //show figures for this rental
+        for (Rental rental : _rentals) {
+            result += "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge() + "</p>";
+        }
+
+        //add footer lines
+        result +=  "<p>Amount owed is " + getTotalCharge() + "</p>";
+        result += "<p>You earned " + getTotalFrequentRenterPoints()
+                + " frequent renter points</p>";
+
+        return result;
+    }
+
     private double getTotalCharge() {
         double totalAmount = 0;
 
