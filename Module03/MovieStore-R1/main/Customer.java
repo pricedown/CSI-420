@@ -5,14 +5,14 @@ import java.util.* ;
 public class Customer {
 
     private String _name;
-    private Vector _rentals = new Vector();
+    private ArrayList<Rental> _rentals = new ArrayList<>();
 
     public Customer(String name) {
        _name = name;
     }
 
     public void addRental(Rental arg) {
-       _rentals.addElement(arg);
+       _rentals.add(arg);
     }
 
     public String getName() {
@@ -51,34 +51,30 @@ public class Customer {
         // statement() // string and formatting
     // TODO: we can store records in some state surely, not all at runtime
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
 
-        // TODO: Use a for
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
+        int frequentRenterPoints = 0;
+        double totalAmount = 0;
 
+        for (Rental rental : _rentals) {
             // add frequent renter points
             frequentRenterPoints++;
 
             // TODO: Does this need to be separate here?
             // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-                    && each.getDaysRented() > 1) {
+            if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1) {
                 frequentRenterPoints++;
             }
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + each.getCharge() + "\n";
+            result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getCharge() + "\n";
 
-            totalAmount += each.getCharge();
+            totalAmount += rental.getCharge();
         }
 
         //add footer lines
-        result +=  "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
+        result +=  "Amount owed is " + totalAmount + "\n";
+        result += "You earned " + frequentRenterPoints
                 + " frequent renter points";
 
         return result;
