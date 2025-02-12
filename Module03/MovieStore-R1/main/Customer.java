@@ -56,9 +56,10 @@ public class Customer {
         // statement() // string and formatting
 
 
-    // 2/12/25 notes
+    // 2/12/25 notes TODO: Move switch statements inside relevant class
         // If you use a switch statement, it should be on your own data
-        // so more getCharge from rental to movie (switch on type of movie)
+        // so more getCharge() from rental to movie (switch on type of movie)
+        // and getFrequentRenterPoints() from rental to movie
         // least ripple effect when changing movie class
 
     // TODO: we can store records in some state surely, not all at runtime
