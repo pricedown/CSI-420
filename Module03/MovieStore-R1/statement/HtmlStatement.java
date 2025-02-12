@@ -4,18 +4,30 @@ import main.Customer;
 import main.Rental;
 
 public class HtmlStatement extends Statement {
-    public String makeStatement(Customer customer) {
-        String result = "<h1>Rental Record for " + customer.getName() + "</h1>";
+    public String getHeaderString(Customer customer) {
+        return "<h1>Rental Record for " + customer.getName() + "</h1>";
+    }
 
-        //show figures for this rental
-        for (Rental rental : customer.getRentals()) {
-            result += "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge();
-        }
+    public String getEachRentalString(Rental rental) {
+        return "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge();
+    }
 
-        //add footer lines
+    public String getFooterString(Customer customer) {
+        String result = "";
         result +=  "<p>Amount owed is " + customer.getTotalCharge() + "</p>";
         result += "<p>You earned " + customer.getTotalFrequentRenterPoints()
                 + " frequent renter points</p>";
+        return result;
+    }
+
+    public String makeStatement(Customer customer) {
+        String result = getHeaderString(customer);
+
+        for (Rental rental : customer.getRentals()) {
+            result += getEachRentalString(rental);
+        }
+
+        result += getFooterString(customer);
 
         return result;
     }
