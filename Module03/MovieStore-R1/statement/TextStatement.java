@@ -19,16 +19,4 @@ public class TextStatement extends Statement {
                 + " frequent renter points";
         return result;
     }
-
-    public String makeStatement(Customer customer) {
-        String result = getHeaderString(customer);
-
-        for (Rental rental : customer.getRentals()) {
-            result += getEachRentalString(rental);
-        }
-
-        result += getFooterString(customer);
-
-        return result;
-    }
 }
