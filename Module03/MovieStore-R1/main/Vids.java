@@ -4,6 +4,7 @@ import price.ChildrensPrice;
 import price.NewReleasePrice;
 import price.RegularPrice;
 import statement.HtmlStatement;
+import statement.JsonStatement;
 
 public class Vids {
 
@@ -41,6 +42,11 @@ public class Vids {
 
       cust1.setStatementType(new HtmlStatement());
       cust2.setStatementType(new HtmlStatement());
+      System.out.println ("\n"+cust1.makeStatement()+"\n" );
+      System.out.println ("\n"+cust2.makeStatement()+"\n");
+
+      cust1.setStatementType(new JsonStatement());
+      cust2.setStatementType(new JsonStatement());
       System.out.println ("\n"+cust1.makeStatement()+"\n" );
       System.out.println ("\n"+cust2.makeStatement()+"\n");
    }
