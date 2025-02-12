@@ -4,14 +4,6 @@ import main.Movie;
 
 // Childrens, NewRelease, Regular
 public class ChildrensPrice extends Price {
-    /*
-    @Override
-    public int getPriceCode() {
-        return Movie.CHILDRENS;
-    }
-
-     */
-
     @Override
     public double getCharge(int daysRented) {
         double price;
