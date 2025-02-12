@@ -1,14 +1,19 @@
 package main;
 
+import statement.Statement;
+import statement.TextStatement;
+
 import java.util.* ;
 
 public class Customer {
 
     private String _name;
     private ArrayList<Rental> _rentals = new ArrayList<>();
+    private Statement statement;
 
     public Customer(String name) {
        _name = name;
+       statement = new TextStatement();
     }
 
     public void addRental(Rental arg) {
@@ -61,41 +66,20 @@ public class Customer {
         // so more getCharge() from rental to movie (switch on type of movie)
         // and getFrequentRenterPoints() from rental to movie
         // least ripple effect when changing movie class
+        // Use Template method for statement!!
 
-    // TODO: we can store records in some state surely, not all at runtime
-    public String statement() {
-        String result = "Rental Record for " + getName() + "\n";
-
-        //show figures for this rental
-        for (Rental rental : _rentals) {
-            result += "\t" + rental.getMovie().getTitle() + "\t" + rental.getCharge() + "\n";
-        }
-
-        //add footer lines
-        result +=  "Amount owed is " + getTotalCharge() + "\n";
-        result += "You earned " + getTotalFrequentRenterPoints()
-                + " frequent renter points";
-
-        return result;
+    public void setStatementType(Statement statementType) {
+        statement = statementType;
+    }
+    public String makeStatement() {
+        return statement.makeStatement(this);
     }
 
-    public String htmlStatement() {
-        String result = "<h1>Rental Record for " + getName() + "</h1>";
-
-        //show figures for this rental
-        for (Rental rental : _rentals) {
-            result += "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge();
-        }
-
-        //add footer lines
-        result +=  "<p>Amount owed is " + getTotalCharge() + "</p>";
-        result += "<p>You earned " + getTotalFrequentRenterPoints()
-                + " frequent renter points</p>";
-
-        return result;
+    public ArrayList<Rental> getRentals() {
+        return _rentals;
     }
 
-    private double getTotalCharge() {
+    public double getTotalCharge() {
         double totalAmount = 0;
 
         for (Rental rental : _rentals) {
@@ -105,7 +89,7 @@ public class Customer {
         return totalAmount;
     }
 
-    private int getTotalFrequentRenterPoints() {
+    public int getTotalFrequentRenterPoints() {
         int totalPoints = 0;
         for (Rental rental : _rentals) {
             totalPoints += rental.getFrequentRenterPoints();

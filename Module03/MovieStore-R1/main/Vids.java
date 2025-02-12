@@ -3,6 +3,7 @@ package main;
 import price.ChildrensPrice;
 import price.NewReleasePrice;
 import price.RegularPrice;
+import statement.HtmlStatement;
 
 public class Vids {
 
@@ -35,9 +36,13 @@ public class Vids {
       cust2.addRental(ren3);
       cust2.addRental(ren4);
 
-      System.out.println ("\n"+cust1.statement()+"\n" );
-      System.out.println ("\n"+cust2.statement()+"\n");
+      System.out.println ("\n"+cust1.makeStatement()+"\n" );
+      System.out.println ("\n"+cust2.makeStatement()+"\n");
 
+      cust1.setStatementType(new HtmlStatement());
+      cust2.setStatementType(new HtmlStatement());
+      System.out.println ("\n"+cust1.makeStatement()+"\n" );
+      System.out.println ("\n"+cust2.makeStatement()+"\n");
    }
 
 }
