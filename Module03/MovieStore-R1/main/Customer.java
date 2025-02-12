@@ -55,6 +55,12 @@ public class Customer {
         // getRenterPoints()
         // statement() // string and formatting
 
+
+    // 2/12/25 notes
+        // If you use a switch statement, it should be on your own data
+        // so more getCharge from rental to movie (switch on type of movie)
+        // least ripple effect when changing movie class
+
     // TODO: we can store records in some state surely, not all at runtime
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
@@ -77,7 +83,7 @@ public class Customer {
 
         //show figures for this rental
         for (Rental rental : _rentals) {
-            result += "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge() + "</p>";
+            result += "<p>"+ rental.getMovie().getTitle() + "<br>" + rental.getCharge();
         }
 
         //add footer lines
@@ -107,5 +113,3 @@ public class Customer {
     }
 
 }
-
-
