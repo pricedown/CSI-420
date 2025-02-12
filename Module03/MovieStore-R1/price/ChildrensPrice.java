@@ -17,4 +17,9 @@ public class ChildrensPrice extends Price {
             price += (daysRented - 3) * 1.5;
         return price;
     }
+
+    @Override
+    public int getFrequentRenterPoints(int daysRented) {
+        return 1;
+    }
 }

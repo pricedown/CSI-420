@@ -13,10 +13,10 @@ public class Movie {
       // Don't set directly, use getting and setting methods
       // flexible for refactoring
    // Second step: replace data with strategy and cleanup
-   // Third step: divide functions
-      // First, move entire switch statement into base class
-      // Then, copy + paste the method into subclasses with override,
-      // Edit each one and trim out the unnecessary branches
+   // Third step: move getCharge to subclasses
+      // First, move entire switch statement into base class (test)
+      // Then, copy + paste the method into subclasses with override, (test)
+      // Edit each one and trim out the unnecessary branches (test for each)
       // Finally, make it abstract
 
    public static final int  CHILDRENS = 2;
@@ -35,10 +35,7 @@ public class Movie {
    }
 
    public int getFrequentRenterPoints(int daysRented) {
-      if ((getPriceCode() == Movie.NEW_RELEASE) && daysRented > 1) {
-         return 2;
-      }
-      return 1;
+      return _price.getFrequentRenterPoints(daysRented);
    }
 
    public int getPriceCode() {
