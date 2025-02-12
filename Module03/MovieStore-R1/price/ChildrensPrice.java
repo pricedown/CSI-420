@@ -8,4 +8,13 @@ public class ChildrensPrice extends Price {
     public int getPriceCode() {
         return Movie.CHILDRENS;
     }
+
+    @Override
+    public double getCharge(int daysRented) {
+        double price;
+        price = 1.5;
+        if (daysRented > 3)
+            price += (daysRented - 3) * 1.5;
+        return price;
+    }
 }
