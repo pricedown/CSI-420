@@ -3,6 +3,11 @@ package main;
 public class Movie {
 
    // TODO: could be enums, or different classes
+   // Use strategy pattern for movie type: Price
+   // First step: "Self encapsulate field"
+      // Don't set directly, use getting and setting methods
+      // flexible for refactoring
+
    public static final int  CHILDRENS = 2;
    public static final int  REGULAR = 0;
    public static final int  NEW_RELEASE = 1;
@@ -11,22 +16,9 @@ public class Movie {
    private int _priceCode;
 
    public Movie(String title, int priceCode) {
-      _title = title;
-      _priceCode = priceCode;
+      setTitle(title);
+      setPriceCode(priceCode);
    }
-
-   public int getPriceCode() {
-      return _priceCode;
-   }
-
-   public void setPriceCode (int arg) {
-      _priceCode = arg;
-   }
-
-   public String getTitle() {
-      return _title;
-   }
-
    public double getCharge(int daysRented) {
       double price = 0;
       switch (getPriceCode()) {
@@ -53,5 +45,20 @@ public class Movie {
       }
       return 1;
    }
+
+   public int getPriceCode() {
+      return _priceCode;
+   }
+   public void setPriceCode (int arg) {
+      _priceCode = arg;
+   }
+
+   public String getTitle() {
+      return _title;
+   }
+   public void setTitle(String title) {
+      _title = title;
+   }
+
 }
 
