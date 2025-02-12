@@ -3,6 +3,9 @@ package test;
 import main.Customer;
 import main.Movie;
 import main.Rental;
+import price.ChildrensPrice;
+import price.NewReleasePrice;
+import price.RegularPrice;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,8 +26,8 @@ class CustomerTest {
         Rental ren2;
 
         cust1 = new Customer("bob");
-        mov1 = new Movie("dumbo", 2);
-        mov2 = new Movie("jaws", 0);
+        mov1 = new Movie("dumbo",  new ChildrensPrice());
+        mov2 = new Movie("jaws",  new RegularPrice());
         ren1 = new Rental(mov1,2);
         ren2 = new Rental(mov2,5);
         cust1.addRental(ren1);
@@ -47,7 +50,7 @@ class CustomerTest {
         Rental ren3;
         Rental ren4;
         cust2 = new Customer("ann");
-        mov3 = new Movie("ghost", 1);
+        mov3 = new Movie("ghost", new NewReleasePrice());
         ren3 = new Rental(mov3, 1);
         ren4 = new Rental(mov3, 3);
         cust2.addRental(ren3);

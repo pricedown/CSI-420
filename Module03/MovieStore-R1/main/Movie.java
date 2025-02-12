@@ -18,15 +18,16 @@ public class Movie {
       // Then, copy + paste the method into subclasses with override, (test)
       // Edit each one and trim out the unnecessary branches (test for each)
       // Finally, make it abstract
-
-   public static final int  CHILDRENS = 2;
-   public static final int  REGULAR = 0;
-   public static final int  NEW_RELEASE = 1;
+   // Fourth step: move getFrequentRenterPoints
+   // Fifth step: Observe that getPriceCode is not being used...
+      // Comment out and remove
+      // Suddenly all of the final ints are not being used!
+      // Completely rid of the smell
 
    private String _title;
    private Price _price;
 
-   public Movie(String title, int priceCode) {
+   public Movie(String title, Price priceCode) {
       setTitle(title);
       setPriceCode(priceCode);
    }
@@ -38,24 +39,15 @@ public class Movie {
       return _price.getFrequentRenterPoints(daysRented);
    }
 
+   /*
    public int getPriceCode() {
       return _price.getPriceCode();
    }
 
-   public void setPriceCode (int arg) {
-      switch (arg) {
-         case Movie.REGULAR:
-            _price = new RegularPrice();
-            break;
-         case Movie.NEW_RELEASE:
-            _price = new NewReleasePrice();
-            break;
-         case Movie.CHILDRENS:
-            _price = new ChildrensPrice();
-            break;
-         default:
-            throw new IllegalArgumentException("Unexpected Price Code");
-      }
+    */
+
+   public void setPriceCode (Price price) {
+      _price = price;
    }
 
    public String getTitle() {
