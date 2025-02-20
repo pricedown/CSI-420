@@ -1,0 +1,7 @@
+I really enjoyed this in-class exercise format, and thought it was great
+I think if we do this again, next time I will use version control more thoroughly to document each refactor,
+remembering each step I took and why (big commit comments instead of big in-code notes)
+This was a particularly well laid-out project for refactoring, and it was not as painful as I thought it might be after
+we learned the tricks.
+It felt very chill and sticks in my memory a lot more than the slideshows.
+Making all of us complete it by hand was good, just watching it happen would have felt too passive.
