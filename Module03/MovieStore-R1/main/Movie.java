@@ -1,9 +1,8 @@
+// Joseph Isaacs
+
 package main;
 
-import price.ChildrensPrice;
-import price.NewReleasePrice;
 import price.Price;
-import price.RegularPrice;
 
 public class Movie {
 

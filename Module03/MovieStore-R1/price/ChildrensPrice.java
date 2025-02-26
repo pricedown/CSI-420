@@ -1,6 +1,6 @@
-package price;
+// joseph isaacs
 
-import main.Movie;
+package price;
 
 // Childrens, NewRelease, Regular
 public class ChildrensPrice extends Price {

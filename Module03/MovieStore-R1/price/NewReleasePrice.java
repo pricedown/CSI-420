@@ -1,6 +1,6 @@
-package price;
+// joseph isaacs
 
-import main.Movie;
+package price;
 
 public class NewReleasePrice extends Price {
     @Override
