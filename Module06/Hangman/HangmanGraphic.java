@@ -69,7 +69,7 @@ public class HangmanGraphic {
 			System.out.println("___|___      /   \\");
 		}
 		if (failCount == 7) {
-			System.out.println("Wrong guess, try again");
+			System.out.println("Wrong guess, ");
 			System.out.println("   ____________");
 			System.out.println("   |          _|_");
 			System.out.println("   |         /   \\");
@@ -91,7 +91,6 @@ public class HangmanGraphic {
 			System.out.println("   |         / | \\");
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
-			System.out.println("GAME OVER! The word was " /*+ word*/);
 		}
 	}
 }
